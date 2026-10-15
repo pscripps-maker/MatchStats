@@ -25,3 +25,13 @@ This ZIP contains the files needed to host Touchline Tracker as a static website
 ## Data safety
 
 The app stores team and match data in the browser's local storage on each device. Updating the website should not require clearing browser storage. **Do not clear site data/storage** as part of the update. Export a backup regularly, and especially before replacing the hosted files.
+
+
+## Latest reliability fixes (v7)
+- Corrected saved-match team/date/season/tournament filtering with metadata fallbacks.
+- Visual formation redraws the existing selection after a swap/substitution.
+- Penalty shootout records and redraws the next kick state immediately.
+- Start-period buttons start the match clock when pressed before kick-off.
+- Yellow feedback is triggered on click rather than pointer-down, so scrolling should not flash buttons.
+- Live page order is players, match timeline, player time, then event totals.
+- Team backup filenames include the selected team name and export date.
