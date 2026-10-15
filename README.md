@@ -58,3 +58,20 @@ The app stores team and match data in the browser's local storage on each device
 
 
 Reliability update: undo snapshots are now capped by both count and total size. Saving first trims undo history and, if browser storage is full, retries after clearing the current match undo history. Visual formation and shootout saves use the same persistence routine. Older undo steps may be discarded to protect the match data.
+
+
+## Build and diagnostics (2026-10-15)
+
+- Release build ID: `TT-2026.10.15-r1`
+- Service-worker cache: `touchline-tracker-20261015-r1`
+- The app opens diagnostics after five taps on the top/bottom match banner within about 1.8 seconds. It reports build identifiers, active service worker, cache names, IndexedDB availability, and record counts.
+- IndexedDB database: `touchline-tracker-db` (version 1), object stores `app` and `meta`. Existing localStorage data is retained and mirrored to IndexedDB; if localStorage is absent, the app attempts to restore the IndexedDB snapshot. This release deliberately keeps localStorage compatibility while IndexedDB rollout is tested.
+- Statistics fixes normalise saved match records and ensure a selected team does not hide the saved-match statistics merely because the *current unsaved match* belongs to another team.
+
+### Verify the running build
+1. Publish every file in the ZIP to the repository root and commit.
+2. Open the GitHub Pages site, tap the top/bottom match banner five times quickly, and compare the reported build ID and cache name above.
+3. Check that the active service worker is present and IndexedDB says Available.
+4. Create two teams and save one match with a goal and assist for the first team. Select that team in Statistics and History; its saved match and player event counts should appear. Select the second team; the first team's match should be excluded.
+
+**Important technical limitation:** this is a transitional IndexedDB-backed release: localStorage remains the synchronous compatibility store because the existing application reads its state synchronously at startup. Data is mirrored into IndexedDB and can be restored from it when localStorage is absent, but this is not yet a complete localStorage-free IndexedDB-only rewrite.
