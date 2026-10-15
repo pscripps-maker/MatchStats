@@ -1,4 +1,4 @@
-const CACHE = 'touchline-live-layout-formation-shootout-fix-v8';
+const CACHE = 'touchline-team-select-auto-load-v9';
 const ASSETS = ['./', './index.html', './manifest.webmanifest', './icon-192.png', './icon-512.png'];
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(ASSETS)).then(() => self.skipWaiting()));

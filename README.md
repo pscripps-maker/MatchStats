@@ -43,3 +43,9 @@ The app stores team and match data in the browser's local storage on each device
 - Penalty shootout score, recorded kick list, turn and available takers update inside the existing popup after each kick.
 - Yellow feedback is limited to actual clicks on match action buttons rather than pointer-down gestures that can begin scrolling.
 - Updated the service-worker cache version so the revised files can be picked up after publishing.
+
+
+## Team page saved-team selection update
+- The Team page no longer requires a separate Load team button. Choose a saved team in the Saved teams dropdown to load its players, kit colours, shirt numbers and age-group setup into the editable fields below.
+- If the current team has unsaved changes, the app asks whether to save or discard them before switching.
+- Saved team records now retain the age group as well.
