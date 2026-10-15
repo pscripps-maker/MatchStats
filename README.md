@@ -49,3 +49,9 @@ The app stores team and match data in the browser's local storage on each device
 - The Team page no longer requires a separate Load team button. Choose a saved team in the Saved teams dropdown to load its players, kit colours, shirt numbers and age-group setup into the editable fields below.
 - If the current team has unsaved changes, the app asks whether to save or discard them before switching.
 - Saved team records now retain the age group as well.
+
+
+### Popup refresh reliability fix (v10)
+- Visual formation now updates the pitch inside the existing popup without rerendering the whole app while selections are being made. Changes remain in the popup until Save formation & close.
+- Penalty shootout has a stable modal content container; each kick updates score, recorded kicks, turn and available takers in place without rebuilding the underlying live screen.
+- Bumped service-worker cache to ensure updated files can be fetched.
