@@ -55,3 +55,6 @@ The app stores team and match data in the browser's local storage on each device
 - Visual formation now updates the pitch inside the existing popup without rerendering the whole app while selections are being made. Changes remain in the popup until Save formation & close.
 - Penalty shootout has a stable modal content container; each kick updates score, recorded kicks, turn and available takers in place without rebuilding the underlying live screen.
 - Bumped service-worker cache to ensure updated files can be fetched.
+
+
+Reliability update: undo snapshots are now capped by both count and total size. Saving first trims undo history and, if browser storage is full, retries after clearing the current match undo history. Visual formation and shootout saves use the same persistence routine. Older undo steps may be discarded to protect the match data.
