@@ -35,3 +35,11 @@ The app stores team and match data in the browser's local storage on each device
 - Yellow feedback is triggered on click rather than pointer-down, so scrolling should not flash buttons.
 - Live page order is players, match timeline, player time, then event totals.
 - Team backup filenames include the selected team name and export date.
+
+
+## Latest reliability fixes
+- Added a live-page toggle to switch between single-button and player-card layouts.
+- Visual formation swaps and substitutions now redraw the pitch in the open popup; the popup stays open until Save formation & close is pressed.
+- Penalty shootout score, recorded kick list, turn and available takers update inside the existing popup after each kick.
+- Yellow feedback is limited to actual clicks on match action buttons rather than pointer-down gestures that can begin scrolling.
+- Updated the service-worker cache version so the revised files can be picked up after publishing.
